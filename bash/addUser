@@ -13,27 +13,13 @@ do
 	  # no shifting needed here, we're done.
 	  exit 0
 	  ;;
-      -u | --user)
-	  username="$2" # You may want to check validity of $2  s
-      mkdir /var/www/html/username
+	-p | --pass)
+	  password="$2" # You may want to check validity of $2  s
 	  shift 2
 	  ;;
-      -v | --verbose)
-          #  It's better to assign a string, than a number like "verbose=1"
-	  #  because if you're debugging the script with "bash -x" code like this:
-	  #
-	  #    if [ "$verbose" ] ...
-	  #
-	  #  You will see:
-	  #
-	  #    if [ "verbose" ] ...
-	  #
-          #  Instead of cryptic
-	  #
-	  #    if [ "1" ] ...
-	  #
-	  verbose="verbose"
-	  shift
+      -u | --user)
+	  username="$2" # You may want to check validity of $2  s
+	  shift 2
 	  ;;
       --) # End of all options
 	  shift
@@ -48,7 +34,15 @@ do
 	  ;;
     esac
 done
+newdir="/var/www/html/"
 
+	mkdir $newdir$username
+	useradd $username
+	echo "$username:$password" | chpasswd
+
+	usermod $username -m -d $newdir$username
+	chown $username:"mail" $newdir$username
+	
 ls
 
 # End of file
