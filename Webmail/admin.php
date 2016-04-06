@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Projet Linux</title>
     <link rel="stylesheet" type="text/css" href="css.css"/>
-    <?php session_start();
+    <?php
+    require_once ("login/check_login.php");
+    session_start();
+    
     $_SESSION['referer'] = $_SERVER["REQUEST_URI"];
     ?>
 </head>
@@ -12,9 +15,9 @@
 <div id="flexContainer">
     <nav><ul>
             <li></li>
-            <li><a href="home">Home</a></li>
-            <li><a href="squirrelmail">Webmail</a></li>
-            <li><a href="admin">Admin</a></li>
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/squirrelmail">Webmail</a></li>
+            <li><a href="/Webmail/admin.php">Admin</a></li>
         </ul></nav>
     <div id="content">
     <form action="addUser.php" method="POST">
