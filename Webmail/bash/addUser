@@ -36,13 +36,14 @@ do
 done
 newdir="/var/www/html/"
 
-	mkdir $newdir$username
-	useradd $username
-	echo "$username:$password" | chpasswd
+	mkdir -p $newdir$username
+	sudo useradd $username
+	echo "$username:$password" | sudo chpasswd
 
-	usermod $username -m -d $newdir$username
-	chown $username:"mail" $newdir$username
-	
-ls
+	sudo usermod $username -m -d $newdir$username
+	sudo chown $username:$username $newdir$username
+	sudo usermod -G mail $username
+
+
 
 # End of file

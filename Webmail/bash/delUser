@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+newdir="/var/www/html/"
+user=$1
+
+if [ -z $user ]
+then
+echo "user empty"
+else
+rm -rf $newdir$user
+sudo userdel $user
+fi
+
+
