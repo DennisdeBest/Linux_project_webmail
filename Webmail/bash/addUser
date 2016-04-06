@@ -4,10 +4,6 @@
 while :
 do
     case "$1" in
-      -f | --file)
-	  file="$2"   # You may want to check validity of $2
-	  shift 2
-	  ;;
       -h | --help)
 	  display_help  # Call your function
 	  # no shifting needed here, we're done.
@@ -36,14 +32,16 @@ do
 done
 newdir="/var/www/html/"
 
+if [ -z $password ]
+then
+echo "password empty"
+else
 	mkdir -p $newdir$username
 	sudo useradd $username
 	echo "$username:$password" | sudo chpasswd
-
 	sudo usermod $username -m -d $newdir$username
 	sudo chown $username:$username $newdir$username
 	sudo usermod -G mail $username
-
-
+fi
 
 # End of file

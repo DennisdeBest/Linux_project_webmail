@@ -1,7 +1,4 @@
 <?php
-$root = __DIR__;
-
-echo $root;
 
 $sysDirs = array(".", "..", "bash", "Webmail", "index.php", "plugins");
 
@@ -12,12 +9,16 @@ foreach ($dirs as $dir){
     if(!in_array($dir, $sysDirs))
         $dirsArray[]=$dir;
 }
+echo "<table>";
 foreach ($dirsArray as $user){
+
     echo "<form class='usersform' method='post' action='delUser.php'>";
-    echo "<label>".$user."</label>";
+    echo "<tr>";
+    echo "<th><label>".$user."</label></th>";
     echo "<input type='hidden' name='username' value='".$user."'/>";
-    echo "<input type='submit' value='Delete User'/>";
+    echo "<td><input type='submit' value='✘'/></td>";
+    echo "</tr>";
     echo "</form>";
 }
-
+echo "</table>"
 ?>

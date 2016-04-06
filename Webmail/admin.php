@@ -20,6 +20,8 @@
             <li><a href="/Webmail/admin.php">Admin</a></li>
         </ul></nav>
     <div id="content">
+        <div id="adduser">
+            <h2>Add users</h2>
     <form action="addUser.php" method="POST">
         <table>
        <tr>
@@ -38,20 +40,25 @@
         </tr>
         </table>
     </form>
-
-        <?php
-        echo "Output : ";
-        if(isset( $_SESSION['output']))
-            echo $_SESSION['output'];
-        echo "<br/>";
-        echo "Errors : ";
-            if(isset( $_SESSION['error']))
-        echo $_SESSION['error'];
-?>
+    </div>
 
     <div id="listUsers">
+        <h2>Delete users</h2>
         <?php require("listUsers.php"); ?>
     </div>
+        <div id="phpinfo">
+            <h2>PHP return information</h2>
+            <?php
+            echo "Output : ";
+            if(isset( $_SESSION['output']))
+                echo $_SESSION['output'];
+            echo "<br/>";
+            echo "Errors : ";
+            if(isset( $_SESSION['error']))
+                echo $_SESSION['error'];
+            ?>
+        </div>
+
     </div>
 </div>
 
