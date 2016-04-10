@@ -53,9 +53,14 @@
             if(isset( $_SESSION['output']))
                 echo $_SESSION['output'];
             echo "<br/>";
-            echo "Errors : ";
+            echo "Info : ";
+            if(isset( $_SESSION['info']))
+                echo $_SESSION['info'];
+            echo "<br/>";
+            echo "Errors : <span class='error'>";
             if(isset( $_SESSION['error']))
                 echo $_SESSION['error'];
+            echo "</span>";
             ?>
         </div>
 

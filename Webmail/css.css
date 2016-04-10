@@ -90,3 +90,7 @@ h2 {
     color: darkorange;
     text-shadow: 2px 2px black;
 }
+.error {
+    color: red;
+    font-weight: bold;
+}
