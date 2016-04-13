@@ -26,4 +26,4 @@ if(empty($_SESSION['error'])){
     $_SESSION['output'] = $script;
 }
 
-header("Location:http://".$_SERVER['HTTP_HOST'].$_SESSION['referer']);
+header("Location:http://".$_SERVER['HTTP_HOST'].$_SESSION['referrer']);

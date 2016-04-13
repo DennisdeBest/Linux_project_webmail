@@ -12,11 +12,11 @@ foreach ($dirs as $dir){
 echo "<table>";
 foreach ($dirsArray as $user){
 
-    echo "<form class='usersform' method='post' action='delUser.php'>";
+    echo "<form class='delete' method='post' action='delUser.php'>";
     echo "<tr>";
     echo "<th><label>".$user."</label></th>";
     echo "<input type='hidden' name='username' value='".$user."'/>";
-    echo "<td><input type='submit' value='✘'/></td>";
+    echo "<td><input class='deleteButton' type='submit' value='✘'/></td>";
     echo "</tr>";
     echo "</form>";
 }

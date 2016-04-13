@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+apachedir="/etc/apache2/sites-available/"
+dir="/var/www/html/vHosts/"
+vHost=$1
+
+if [ -z $vHost ]
+then
+echo "no vHost name"
+else
+rm -rf $apachedir$vHost
+rm -rf $dir$vHost
+
+sudo service apache reload
+fi
+
+

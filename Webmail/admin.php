@@ -22,25 +22,42 @@
     <div id="content">
         <div id="adduser">
             <h2>Add users</h2>
-    <form action="addUser.php" method="POST">
-        <table>
-       <tr>
-           <th><label>Username : </label></th>
-           <td><input type="text" id="username" name="username" /></td>
-       </tr>
-        <tr>
-            <th><label>Password : </label></th>
-            <td><input type="password" id="pass1" name="pass1"/></td>
-        </tr>
-        <tr>
-       <th><label>Repeat password : </label></th>
-        <td><input type="password" id="pass2" name="pass2"></td>
-        <tr>
-        <td><input type="submit" value="Add User"></td>
-        </tr>
-        </table>
-    </form>
-    </div>
+            <form action="addUser.php" method="POST">
+                <table>
+               <tr>
+                   <th><label>Username : </label></th>
+                   <td><input type="text" id="username" name="username" /></td>
+               </tr>
+                <tr>
+                    <th><label>Password : </label></th>
+                    <td><input type="password" id="pass1" name="pass1"/></td>
+                </tr>
+                <tr>
+               <th><label>Repeat password : </label></th>
+                <td><input type="password" id="pass2" name="pass2"></td>
+                <tr>
+                <td><input type="submit" value="Add User"></td>
+                </tr>
+                </table>
+            </form>
+        </div>
+        <div id="addvHost">
+            <h2>Add vHost</h2>
+            <form action="addvHost.php" method="POST">
+                <table>
+                    <tr>
+                        <th><label>Servername : </label></th>
+                        <td><input type="text" id="servername" name="servername" /></td>
+                    </tr>
+                    <tr>
+                        <th><label>Email : </label></th>
+                        <td><input type="text" id="email" name="email"/></td>
+                    </tr>
+                        <td><input type="submit" value="Add vHost"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
         <div id="userQuotas">
             <h2>Quotas</h2>
             <form method="post" action="showquotas.php">
@@ -52,10 +69,16 @@
             ?>
         </div>
 
-    <div id="listUsers">
-        <h2>Delete users</h2>
-        <?php require("listUsers.php"); ?>
-    </div>
+        <div id="showvHosts">
+            <h2>vHosts</h2>
+            <?php include("listvHosts.php"); ?>
+        </div>
+
+        <div id="listUsers">
+            <h2>Delete users</h2>
+            <?php require("listUsers.php"); ?>
+        </div>
+
         <div id="phpinfo">
             <h2>PHP return information</h2>
             <?php
@@ -73,7 +96,6 @@
             echo "</span>";
             ?>
         </div>
-
     </div>
 </div>
 

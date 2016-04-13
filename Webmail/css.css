@@ -56,21 +56,20 @@ nav ul li a:hover {
     flex:6;
     padding-left: 15px;
 }
-#adduser, #listUsers, #phpinfo, #userQuotas {
+#adduser, #listUsers, #phpinfo, #userQuotas, #showvHosts, #addvHost {
     border: 2px darkorange outset;
     margin: 20px;
     padding: 0px 10px 10px 10px;
 }
-#listUsers input:hover{
+.deleteButton:hover{
     background:none ;
     border: none;
-    color: darkred;
+    color: red;
     font-weight: bolder;
     font-size: 1.2em;
     cursor: pointer;
-    flex: 1;
 }
-#listUsers input{
+.deleteButton{
     background:none ;
     border: none;
     color: darkred;
