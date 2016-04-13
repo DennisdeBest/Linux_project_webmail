@@ -8,7 +8,7 @@
     require_once ("login/check_login.php");
     session_start();
     
-    $_SESSION['referer'] = $_SERVER["REQUEST_URI"];
+    $_SESSION['referrer'] = $_SERVER["REQUEST_URI"];
     ?>
 </head>
 <body>
@@ -41,6 +41,16 @@
         </table>
     </form>
     </div>
+        <div id="userQuotas">
+            <h2>Quotas</h2>
+            <form method="post" action="showquotas.php">
+                <input type="submit" value="Refresh"/>
+            </form>
+            <?php
+            if(isset( $_SESSION['quotas']))
+            echo $_SESSION['quotas'];
+            ?>
+        </div>
 
     <div id="listUsers">
         <h2>Delete users</h2>

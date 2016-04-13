@@ -1,0 +1,66 @@
+#!/bin/sh
+# Keeping options in alphabetical order makes it easy to add more.
+
+while :
+do
+    case "$1" in
+      -h | --help)
+	  display_help  # Call your function
+	  # no shifting needed here, we're done.
+	  exit 0
+	  ;;
+	-e | --pass)
+	  email="$2" # You may want to check validity of $2  s
+	  shift 2
+	  ;;
+      -n | --user)
+	  servername="$2" # You may want to check validity of $2  s
+	  shift 2
+	  ;;
+      --) # End of all options
+	  shift
+	  break
+	  ;;
+      -*)
+	  echo "Error: Unknown option: $1" >&2
+	  exit 1
+	  ;;
+      *)  # No more options
+	  break
+	  ;;
+    esac
+done
+dir="/var/www/html/vHosts/"
+apachedir="/etc/apache2/sites-available/"
+conf=$servername.conf
+apacheconf=$apachedir$conf
+logdir="/var/log/apache2/"
+
+if [ -z $email ]
+then
+email=admin@toto.com
+fi
+
+
+if [ -z $servername ]
+then
+echo " no name set "
+
+else
+	mkdir $dir$servername
+	sudo chown -R www-data $dir$servername
+	cp /var/www/html/vHostsDefaults/* $dir$servername
+	echo "<VirtualHost *:80>" > $apacheconf
+	echo "  ServerAdmin $email" >>$apacheconf
+	echo "  Servername $servername" >>$apacheconf
+	echo "  ServerAlias www.$servername" >> $apacheconf
+	echo "  DocumentRoot $dir$servername" >> $apacheconf
+	echo "  ErrorLOG $logdir/error.log" >> $apacheconf
+	echo "  CustomLog $logdir/access.log combined" >> $apacheconf
+	echo "</VirtualHost>" >> $apacheconf
+
+	sudo a2ensite $conf
+	sudo /etc/init.d/apache2 restart
+fi
+
+# End of file

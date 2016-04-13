@@ -56,14 +56,10 @@ nav ul li a:hover {
     flex:6;
     padding-left: 15px;
 }
-#adduser, #listUsers, #phpinfo {
+#adduser, #listUsers, #phpinfo, #userQuotas {
     border: 2px darkorange outset;
     margin: 20px;
     padding: 0px 10px 10px 10px;
-}
-#listUsers {
-    height: 100vh;
-    order: 1;
 }
 #listUsers input:hover{
     background:none ;

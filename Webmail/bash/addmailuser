@@ -30,7 +30,7 @@ do
 	  ;;
     esac
 done
-newdir="/var/www/html/"
+newdir="/mnt/disk/"
 
 if [ -z $password ]
 then
