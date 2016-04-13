@@ -42,6 +42,7 @@ else
 	sudo usermod $username -m -d $newdir$username
 	sudo chown $username:$username $newdir$username
 	sudo usermod -G mail $username
+	sudo setquota -u $username 1834784 2096896 0 0 -a /mnt/disk
 fi
 
 # End of file

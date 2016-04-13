@@ -1,8 +1,8 @@
 <?php
 
-$sysDirs = array(".", "..", "bash", "Webmail", "index.php", "plugins", ".gitignore");
+$sysDirs = array(".", "..", "bash", "Webmail", "index.php", "plugins", ".gitignore", "aquota.user");
 
-$dirs = scandir('/var/www/html');
+$dirs = scandir('/mnt/disk/');
 
 
 foreach ($dirs as $dir){
@@ -12,7 +12,7 @@ foreach ($dirs as $dir){
 echo "<table>";
 foreach ($dirsArray as $user){
 
-    echo "<form class='usersform' method='post' action='delmailuser.php'>";
+    echo "<form class='usersform' method='post' action='delUser.php'>";
     echo "<tr>";
     echo "<th><label>".$user."</label></th>";
     echo "<input type='hidden' name='username' value='".$user."'/>";
