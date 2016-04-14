@@ -17,8 +17,15 @@ foreach ($dirsArray as $user){
     echo "<th><label>".$user."</label></th>";
     echo "<input type='hidden' name='username' value='".$user."'/>";
     echo "<td><input class='deleteButton' type='submit' value='✘'/></td>";
+    echo "</form>";
+    echo "<form class='changepass' method='post' action='changepass.php'>";
+    echo "<th><label for='pass'/>Password </label></th>";
+    echo "<td><input type='input' id='password' name='password'/></td>";
+    echo "<input type='hidden' name='username' value='".$user."'/>";
+    echo "<td><input class='changepassButton' type='submit' value='Change Pass'/></td>";
     echo "</tr>";
     echo "</form>";
+
 }
 echo "</table>"
 ?>

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+newdir="/mnt/disk/"
+username=$1
+pass=$2
+
+if [ -z $pass ]
+then
+echo "no password entered"
+elif [ -z $username ]
+then
+echo "no username entered"
+else
+echo "$username:$password" | sudo chpasswd -e
+echo "$username:$password" | sudo chpasswd
+fi
+
+
